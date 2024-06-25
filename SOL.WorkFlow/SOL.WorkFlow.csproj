@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B378714-F080-4B4C-9257-D5DD5F63516D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SOL.WorkFlow</RootNamespace>
+    <AssemblyName>SOL.WorkFlow</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'wipplay|AnyCPU'">
+    <OutputPath>bin\wipplay\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IApplyVendorCreditService.cs" />
+    <Compile Include="Interfaces\IApproverRepository.cs" />
+    <Compile Include="Interfaces\IChartsAccountRepository.cs" />
+    <Compile Include="Interfaces\IChartsAccountService.cs" />
+    <Compile Include="Interfaces\IApprovalService.cs" />
+    <Compile Include="Interfaces\IBillService.cs" />
+    <Compile Include="Interfaces\ICustomWorkflowRepository.cs" />
+    <Compile Include="Interfaces\ICustomWorkflowService.cs" />
+    <Compile Include="Interfaces\IPayrollReportRepository.cs" />
+    <Compile Include="Interfaces\IDailySalesReportService.cs" />
+    <Compile Include="Interfaces\IPaidCreditRepository.cs" />
+    <Compile Include="Interfaces\IPaidCreditService.cs" />
+    <Compile Include="Interfaces\IDailySalesReportRepository.cs" />
+    <Compile Include="Interfaces\IPayrollReportService.cs" />
+    <Compile Include="Interfaces\IPayrollRepository.cs" />
+    <Compile Include="Interfaces\IPayrollService.cs" />
+    <Compile Include="Interfaces\IProcessRepository.cs" />
+    <Compile Include="Interfaces\IProcessService.cs" />
+    <Compile Include="Interfaces\IWorkflowDocumentService.cs" />
+    <Compile Include="Interfaces\IVendorCreditRepository.cs" />
+    <Compile Include="Interfaces\IVendorCreditService.cs" />
+    <Compile Include="Interfaces\IWorkflowMessageRepository.cs" />
+    <Compile Include="Interfaces\IWorkflowMessageService.cs" />
+    <Compile Include="Interfaces\IWorkFlowPayrollRepository.cs" />
+    <Compile Include="Interfaces\IWorkFlowPayrollService.cs" />
+    <Compile Include="Interfaces\IWorkFlowRepository.cs" />
+    <Compile Include="Interfaces\IWorkFlowService.cs" />
+    <Compile Include="Interfaces\IWorkflowTimelineService.cs" />
+    <Compile Include="Models\ApplyCreditViewModel.cs" />
+    <Compile Include="Models\ApproverNoteViewModel.cs" />
+    <Compile Include="Models\ApproverStatus.cs" />
+    <Compile Include="Models\BillingAccountEntityType.cs" />
+    <Compile Include="Models\BillingDetailsViewModel.cs" />
+    <Compile Include="Models\BillStatus.cs" />
+    <Compile Include="Models\BillViewModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationBankDetailsModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationCreditCardDetailsModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationEmployeeAddressModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationEmployeeDesignationModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationEmployeeModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationEmployeeScheduleModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationModel.cs" />
+    <Compile Include="Models\BookkeepingConfigurationOperationHoursModel.cs" />
+    <Compile Include="Models\BookkeepingEmployeeModels.cs" />
+    <Compile Include="Models\ChartOfAccount.cs" />
+    <Compile Include="Models\CientsAndVendorModel.cs" />
+    <Compile Include="Models\CommonWorkflow.cs" />
+    <Compile Include="Models\COMMON_FIELDS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomMetadataFieldMultipleModel.cs" />
+    <Compile Include="Models\CustomMetadataFieldsModel.cs" />
+    <Compile Include="Models\CustomMetadataFieldValueModel.cs" />
+    <Compile Include="Models\CustomWorkFlowCustomMetadataFieldMultiValueModel.cs" />
+    <Compile Include="Models\CustomWorkFlowCustomMetadataFieldValueModel.cs" />
+    <Compile Include="Models\CustomWorkFlowModel.cs" />
+    <Compile Include="Models\CustomWorkFlowReviewers.cs" />
+    <Compile Include="Models\DocumentAssociation.cs" />
+    <Compile Include="Models\DocumentWorkFlow.cs" />
+    <Compile Include="Models\DocumentWorkflowApprovalModel.cs" />
+    <Compile Include="Models\DocumentWorkflowEscalationModel.cs" />
+    <Compile Include="Models\DocumentWorkflowStepsModel.cs" />
+    <Compile Include="Models\DsrReportLineItems.cs" />
+    <Compile Include="Models\DsrReportModel.cs" />
+    <Compile Include="Models\DsrReportSalesCategory.cs" />
+    <Compile Include="Models\DTOGetCustomWorkflowLineItemById.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DtoWfIsDocViewableInWorkflow.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MS_APPROVAL_STATUS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MS_WORKFLOW_STATUS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MS_WORKFLOW_UNDER_REVIEW_CHANGES_TYPE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaidCreditViewModel.cs" />
+    <Compile Include="Models\PaymentStatus.cs" />
+    <Compile Include="Models\Payroll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PayrollPeriod.cs" />
+    <Compile Include="Models\PayrollReportModel.cs" />
+    <Compile Include="Models\salesAndRevenueModel.cs" />
+    <Compile Include="Models\UpdateStatusViewModel.cs" />
+    <Compile Include="Models\USP_WF_GET_CUSTOM_WORKFLOW_BY_ID_Result.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_WF_GET_CUSTOM_WORKFLOW_LINE_ITEM_BY_ID_Result.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USP_WF_IS_DOC_VIEWABLE_IN_WORKFLOW_Result.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VendorCreditViewModel.cs" />
+    <Compile Include="Models\VendorInvoicViewModel.cs" />
+    <Compile Include="Models\WFCommonFields.cs" />
+    <Compile Include="Models\WF_APPROVER.cs" />
+    <Compile Include="Models\WF_APPROVER_NOTE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BILLING_ACCOUNT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BILLING_DETAIL.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_BANK_DETAILS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_BOOKKEEPING_CONFIGURATION.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CHART_OF_ACCOUNT.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CONFIGURATION_CUSTOM_FIELD.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CONFIGURATION_CUSTOM_FIELD_MULTIPLE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CONFIGURATION_PAYROLL_YEAR_START_DATE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CREDIT_CARD_DETAILS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_CUSTOMER.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_EMPLOYEE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_EMPLOYEE_ADDRESS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_EMPLOYEE_DESIGNATION.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_EMPLOYEE_SCHEDULE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_KPIS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_BANK_TYPE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_COMPANY_ENTITY_TYPES.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_CREDIT_CARD_TYPE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_CUSTOMER_TYPE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_DESIGNATION.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_INDUSTRY.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_KPIS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_SALES_CATEGORY.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_SOFTWARE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_MS_SOFTWARE_TYPE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_OPERATION_HOURS.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_PAYROLL_CYCLE.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_BK_SALES_CATEGORY.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_COMMON_FIELDS.cs" />
+    <Compile Include="Models\WF_CUSTOM_WORKFLOW.cs" />
+    <Compile Include="Models\WF_CUSTOM_WORKFLOW_CUSTOM_FIELD.cs" />
+    <Compile Include="Models\WF_CUSTOM_WORKFLOW_CUSTOM_FIELD_MULTIPLE.cs" />
+    <Compile Include="Models\WF_DOCUMENT.cs" />
+    <Compile Include="Models\WF_DOCUMENT_ENTITIES.cs" />
+    <Compile Include="Models\WF_DOCUMENT_WORKFLOW.cs" />
+    <Compile Include="Models\WF_DOCUMENT_WORKFLOW_APPROVAL.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_DOCUMENT_WORKFLOW_ESCALATION.cs" />
+    <Compile Include="Models\WF_DOCUMENT_WORKFLOW_STEPS.cs" />
+    <Compile Include="Models\WF_DSR_REPORT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_DSR_REPORT_CATEGORY.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_DSR_REPORT_LINE_ITEM.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_INVOICE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_INVOICE_ITEM.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_ITEM.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_MS_ACCOUNT.cs">
+      <DependentUpon>Payroll.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_MS_APPROVAL_STATUS.cs" />
+    <Compile Include="Models\WF_MS_DOCUMENT_APPROVAL_CHANGES_TYPE.cs" />
+    <Compile Include="Models\WF_PAID_CREDIT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PAYMENT_RECEIVED.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PAYROLL.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PAYROLL_LINE_ITEMS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PAYROLL_REPORT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PAYROLL_TIMEOFF_TYPE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_PROCESS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_TIME_LINE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_TIME_LINE_EVENT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_TIME_LINE_OBJECT_TYPE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_TOBEPROCESSED_WIDGET.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_VENDOR_CREDIT_DETAIL.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_WORKFLOW_MESSAGES.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_WORKFLOW_MESSAGE_COMMENT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WF_WORKFLOW_MSGBOARD_RECIPIENTS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkFlow.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\workFlowCommentMsgInfo.cs" />
+    <Compile Include="Models\WorkflowCustomTilte.cs" />
+    <Compile Include="Models\WorkFlowDetailsViewModel.cs" />
+    <Compile Include="Models\WorkflowDraftToNotStarted.cs" />
+    <Compile Include="Models\WorkflowGloble.cs" />
+    <Compile Include="Models\WorkflowlinkDocument.cs" />
+    <Compile Include="Models\WorkFlowMessage.cs" />
+    <Compile Include="Models\WorkflowTimelineEvents.cs" />
+    <Compile Include="Models\WorkflowTimelineObject.cs" />
+    <Compile Include="Models\WorkflowTypes.cs" />
+    <Compile Include="Models\WORKFLOW_CUSTOM.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_CUSTOM_FIELD.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_CUSTOM_FIELD_MULTIPLE.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_DEFINITION.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_DEFINITION_ESCALATION.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_DEFINITION_STEPS.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_DOCUMENT.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_DOCUMENT_ENTITIES.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WORKFLOW_REVIEWER.cs">
+      <DependentUpon>WorkFlow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\_CustomWorkflowCustomFields.cs" />
+    <Compile Include="Models\_WF_PAYROLL.cs" />
+    <Compile Include="Models\_WF_WORKFLOW_MESSAGES.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplyVendorCreditService.cs" />
+    <Compile Include="Services\ChartsAccountService.cs" />
+    <Compile Include="Services\ApprovalService.cs" />
+    <Compile Include="Services\BillService.cs" />
+    <Compile Include="Services\CustomWorkflowService.cs" />
+    <Compile Include="Services\PayrollReportService.cs" />
+    <Compile Include="Services\DailySalesReportService.cs" />
+    <Compile Include="Services\PaidCreditService.cs" />
+    <Compile Include="Services\WorkflowDocumentService.cs" />
+    <Compile Include="Services\PayrollService.cs" />
+    <Compile Include="Services\ProcessService.cs" />
+    <Compile Include="Services\VendorCreditService.cs" />
+    <Compile Include="Services\WorkflowMessageService.cs" />
+    <Compile Include="Services\WorkFlowPayrollService.cs" />
+    <Compile Include="Services\WorkFlowService.cs" />
+    <Compile Include="Services\WorkflowTimelineService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Payroll.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Payroll.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\WorkFlow.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WorkFlow.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\CustomWorkFlowApprovalEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CustomWorkFlowApprovedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CustomWorkFlowCompletedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CustomWorkFlowDeniedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkFlowBillCompletedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkFlowBillDeniedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkFlowBillApprovedEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkFlowBillApprovalEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkFlowBillCreateEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkflowMessageCommentEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WorkflowMessageEmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SOL.ADMIN\SOL.ADMIN.csproj">
+      <Project>{8c771da2-ab89-4422-8002-3376f8dd105f}</Project>
+      <Name>SOL.ADMIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOL.Common\SOL.Common.csproj">
+      <Project>{9014d829-49f4-420d-8254-3b00a5a52d8f}</Project>
+      <Name>SOL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOL.ECM\SOL.ECM.csproj">
+      <Project>{3d51d702-f46d-4d95-a67f-d553dc7de149}</Project>
+      <Name>SOL.ECM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOL.ERM\SOL.ERM.csproj">
+      <Project>{875e3484-4f14-4518-8d3e-04975f0b042b}</Project>
+      <Name>SOL.ERM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOL.PMS\SOL.PMS.csproj">
+      <Project>{ee10070e-9bcf-4a98-9ec8-69f8275a2dcd}</Project>
+      <Name>SOL.PMS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

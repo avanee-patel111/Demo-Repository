@@ -1,0 +1,196 @@
+﻿
+<style>
+    .clsReject {
+        padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #ff0000;
+        background-color: transparent;
+        background-image: none !important;
+        color: #ff0000;
+    }
+
+        .clsReject:hover {
+            color: #ffffff;
+            background-color: #ff0000;
+        }
+
+    .clsApprove {
+        padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #4ab654;
+        background-color: transparent;
+        background-image: none !important;
+        color: #4ab654;
+    }
+
+        .clsApprove:hover {
+            color: #ffffff;
+            background-color: #4ab654;
+        }
+</style>
+
+<div class="content">
+    <table width="0" style="background:white;border: 1px solid #999999;padding: 2px 5px;border-radius: 3px;font-family: verdana,arial,sans-serif;font-size: 12px;">
+        <tbody>
+            <tr>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="text-align:right;margin-bottom: 2px;margin-top: 2px;"><span>Employee Name:</span></p></td>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="margin-bottom: 2px;margin-top: 2px;"><span>&nbsp;##UserName##</span></p></td>
+            </tr>
+            <tr>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="text-align:right;margin-bottom: 2px;margin-top: 2px;"><span>WIP Date:</span></p></td>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="margin-bottom: 2px;margin-top: 2px;"><span>&nbsp;##WipDate##</span></p></td>
+            </tr>
+            <tr>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="text-align:right;margin-bottom: 2px;margin-top: 2px;"><span>Fill Date:</span></p></td>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="margin-bottom: 2px;margin-top: 2px;"><span>&nbsp;##FillDate##</span></p></td>
+            </tr>
+            <tr>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="text-align:right;margin-bottom: 2px;margin-top: 2px;"><span>In Time:</span></p></td>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="margin-bottom: 2px;margin-top: 2px;"><span>&nbsp;##InTime##</span></p></td>
+            </tr>
+            <tr>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="text-align:right;margin-bottom: 2px;margin-top: 2px;"><span>Out Time:</span></p></td>
+                <td style="border:none;padding:0in 0in 0in 0in"><p style="margin-bottom: 2px;margin-top: 2px;"><span>&nbsp;##OutTime##</span></p></td>
+            </tr>
+        </tbody>
+    </table>
+    <table style="width:100%;font-family: verdana,arial,sans-serif;font-size: 12px;color: #333333;border-width: 1px;border-color: #999999;border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr style="border:none;">
+                <td colspan="7" style="border:none;"><span style="padding: 8px 8px 8px 0px;font-family: verdana,arial,sans-serif;font-size: 12px;float:left;width:100%;">Details:</span></td>
+            </tr>
+            <tr>
+                <td colspan="7"></td>
+            </tr>
+            <tr>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">Sr. No.</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">##ProjectLabel##</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">##SprintLabel##</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">Task Id</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">Task Description</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;">Description</td>
+                <td style="background-color: whitesmoke;border-width: 1px;padding: 8px;border-style: solid;font-weight: bold;border-color: #999999;text-align:center;">Hours</td>
+            </tr>
+            <!--<tr>
+        <td colspan="7" style="border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;">
+            ##TimeSheetData##
+        </td>
+    </tr>-->
+            ##TimeSheetData##
+            <tr>
+                <td colspan="7" style="border-width: 1px;padding: 8px;border-style: solid;border-color: #999999;font-weight: bold;text-align:right;">##TotalHours##</td>
+            </tr>
+            <!--<tr style="padding-top: 8px;float: left;">
+                <td colspan="7">
+                    <div style="display: flex;float:left;width:150px;">
+                        <a href="##TSApproveLink##" class="clsApprove" style="padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #4ab654;
+        background-color: transparent;
+        background-image: none !important;
+        color: #4ab654;float:left">Approve</a>&nbsp;
+                        <a href="##TSRejectLink##" class="clsReject" style="        padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #ff0000;
+        background-color: transparent;
+        background-image: none !important;
+        color: #ff0000;">Reject</a>
+                    </div>
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+
+    <table style="font-family: verdana,arial,sans-serif;font-size: 12px;">
+        <tbody>
+            <tr><td></td><td></td></tr>
+            <tr>
+                <td>
+                    <a href="##TSApproveLink##" class="clsApprove" style="padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #4ab654;
+        background-color: transparent;
+        background-image: none !important;
+        color: #4ab654;float:left">Approve</a>&nbsp;
+                </td>
+                <td>
+                    <a href="##TSRejectLink##" class="clsReject" style="        padding: 1px 5px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        user-select: none;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid #ff0000;
+        background-color: transparent;
+        background-image: none !important;
+        color: #ff0000;">Reject</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>            
